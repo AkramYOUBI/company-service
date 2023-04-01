@@ -1,5 +1,6 @@
 package com.example.companyservice.domain.mapper;
 
+import com.example.companyservice.domain.Dto.ApiOutputResult;
 import com.example.companyservice.domain.Dto.CompanyInput;
 import com.example.companyservice.domain.Dto.CompanyOutput;
 import com.example.companyservice.domain.entities.Company;
@@ -13,4 +14,6 @@ public interface CompanyMapper {
 
     CompanyOutput fromDbToOutput(Company result);
     List<CompanyOutput> fromDbToOutput(List<Company> result);
+
+    CompanyOutput fromApiResponseToCompanyOutput(ApiOutputResult apiOutputResult);
 }

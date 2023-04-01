@@ -33,7 +33,7 @@ public class CompanyController {
 
     @GetMapping("/findBySiret/{siret}")
     @ResponseStatus(HttpStatus.OK)
-    private List<CompanyOutput> findCompany(@PathVariable String siret){
+    private CompanyOutput findCompany(@PathVariable String siret){
         return companyService.findBySiret(siret);
     }
 }
