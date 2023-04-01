@@ -5,11 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
@@ -18,11 +16,25 @@ import java.util.Date;
 @Setter
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    //siret
+    private String id;
     private String nic;
+    //Object()
     private String fullAddress;
     private Date creationDate;
     private String fullName;
     private Integer tvaNumber;
+
+    /*
+    This method is used to:
+        1-Generate the Id in a random format like "company_12355d1s3d154fs1"
+        2-Update the creationDate field with the time when the user created this company
+     */
+    @PrePersist
+    private void onPrePersiste(){
+        if(this.getId() == null){
+            this.setId("company_"+UUID.randomUUID().toString());
+        }
+        this.setCreationDate(new Date());
+    }
 }
