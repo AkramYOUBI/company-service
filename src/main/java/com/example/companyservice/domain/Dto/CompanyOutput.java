@@ -16,7 +16,7 @@ public class CompanyOutput {
     private String id;
     private String nic;
     private String fullAddress;
-    private Date creationDate;
+    private String creationDate;
     private String fullName;
     private Integer tvaNumber;
 }
