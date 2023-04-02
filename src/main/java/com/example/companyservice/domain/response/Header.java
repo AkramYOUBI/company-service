@@ -1,4 +1,4 @@
-package com.example.companyservice.domain.Response;
+package com.example.companyservice.domain.response;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

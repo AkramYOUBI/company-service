@@ -16,7 +16,7 @@ public class CompanyServiceApplication {
 /*
 TODO:
 	"Done" 1- OpenFeign for the external API: https://api.insee.fr/catalogue/site/themes/wso2/subthemes/insee/pages/item-info.jag?name=Sirene&version=V3&provider=insee#!/Etablissement/findBySiret
-			1.1-Dto (Mapping)
+			"Done" 1.1-Dto (Mapping)
 			1.2-Unit and integration Tests (3 APIs)
 	2- Update all information in the Swagger UI: http://localhost:8080/swagger-ui/index.html#/ && Docx: http://localhost:8080/v3/api-docs/
 	3- Extract Data as a CSV File

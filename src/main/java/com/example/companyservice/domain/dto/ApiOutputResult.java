@@ -1,6 +1,6 @@
-package com.example.companyservice.domain.Dto;
+package com.example.companyservice.domain.dto;
 
-import com.example.companyservice.domain.Response.Header;
+import com.example.companyservice.domain.response.Header;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

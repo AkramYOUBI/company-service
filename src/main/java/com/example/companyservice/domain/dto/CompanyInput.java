@@ -1,10 +1,12 @@
-package com.example.companyservice.domain.Dto;
+package com.example.companyservice.domain.dto;
 
 import lombok.*;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class CompanyInput {
     private String nic;
     private String fullAddress;

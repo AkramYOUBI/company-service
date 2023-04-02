@@ -1,12 +1,8 @@
 package com.example.companyservice.service.client;
 
-import com.example.companyservice.domain.Dto.ApiOutputResult;
-import com.example.companyservice.domain.Dto.CompanyOutput;
-import feign.Headers;
+import com.example.companyservice.domain.dto.ApiOutputResult;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @FeignClient(name = "insee-sirene-api", url = "${spring.feign.client.config.url}")
 public interface CompanyFeignClient {
