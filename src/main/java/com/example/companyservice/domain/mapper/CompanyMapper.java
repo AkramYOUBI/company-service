@@ -1,10 +1,9 @@
 package com.example.companyservice.domain.mapper;
 
-import com.example.companyservice.domain.Dto.ApiOutputResult;
-import com.example.companyservice.domain.Dto.CompanyInput;
-import com.example.companyservice.domain.Dto.CompanyOutput;
+import com.example.companyservice.domain.dto.ApiOutputResult;
+import com.example.companyservice.domain.dto.CompanyInput;
+import com.example.companyservice.domain.dto.CompanyOutput;
 import com.example.companyservice.domain.entities.Company;
-import org.hibernate.annotations.Target;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

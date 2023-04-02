@@ -1,4 +1,4 @@
-package com.example.companyservice.domain.Dto;
+package com.example.companyservice.domain.dto;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

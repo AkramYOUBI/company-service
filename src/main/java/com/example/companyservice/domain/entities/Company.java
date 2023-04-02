@@ -15,7 +15,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class Company {
-    @Id
+    @Id @Column(length = 200)
     private String id;
     private String nic;
     private String fullAddress;

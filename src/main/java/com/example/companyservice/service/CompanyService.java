@@ -1,8 +1,8 @@
 package com.example.companyservice.service;
 
-import com.example.companyservice.domain.Dto.ApiOutputResult;
-import com.example.companyservice.domain.Dto.CompanyInput;
-import com.example.companyservice.domain.Dto.CompanyOutput;
+import com.example.companyservice.domain.dto.ApiOutputResult;
+import com.example.companyservice.domain.dto.CompanyInput;
+import com.example.companyservice.domain.dto.CompanyOutput;
 import com.example.companyservice.domain.entities.Company;
 import com.example.companyservice.domain.mapper.CompanyMapper;
 import com.example.companyservice.domain.repository.CompanyRepository;
@@ -38,7 +38,7 @@ public class CompanyService {
         return companiesOutput;
     }
 
-    public CompanyOutput findBySiret(String siret) {
+    public CompanyOutput findCompanyBySiret(String siret) {
         String authorizationHeader = "Bearer " + token;
         ApiOutputResult apiOutputResult = companyFeignClient.findBySiret(siret, authorizationHeader);
         CompanyOutput companyOutput = companyMapper.fromApiResponseToCompanyOutput(apiOutputResult);
