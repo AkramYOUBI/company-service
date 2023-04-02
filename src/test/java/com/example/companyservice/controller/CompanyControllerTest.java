@@ -88,20 +88,22 @@ public class CompanyControllerTest {
     public void testFindCompanyBySiret() throws Exception {
 
         String token = "Bearer f09cd19a-26f5-3976-a7f0-7a26fa2b9711";
+        String siret = "97080195700014";
 
         CompanyOutput companyOutput =CompanyOutput.builder()
-                .id("")
+                .id("97080195700014")
                 .nic("00014")
+                .creationDate("1970-01-01")
                 .fullAddress("3 RUE ST FRANCOIS DE PAULE 06300 NICE")
                 .fullName("NAFRev2")
-                .tvaNumber(1).build();
+                .tvaNumber(null).build();
 
 
-        //when(movieService.getMovieByPreferences(preferences)).thenReturn(expected);
+        when(companyService.findCompanyBySiret(siret)).thenReturn(companyOutput);
 
-        //List<MovieDetails> result = movieService.getMovieByPreferences(preferences);
+        CompanyOutput result = companyService.findCompanyBySiret(siret);
 
         // assertion
-        //assertEquals(expected, result);
+        assertEquals(companyOutput, result);
     }
 }
