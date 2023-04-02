@@ -69,7 +69,7 @@ public class CompanyControllerTest {
         expected.add(new CompanyOutput("company_0b23a643-2475-437a-a646-2b3ee0ee48c0", "nic3", "company adress3", "30/11/1997", "company3", 3));
         expected.add(new CompanyOutput("company_079be237-62f6-4b6a-a818-44c8ce7b3c17", "nic2", "company adress2", "20/12/2000", "company2", 2));
 
-        when(companyService.getAllCompanies()).thenReturn(expected);
+        when(companyController.getAllCompanies()).thenReturn(expected);
 
         // act
         List<CompanyOutput> result = companyService.getAllCompanies();
@@ -87,21 +87,22 @@ public class CompanyControllerTest {
     @Test
     public void testFindCompanyBySiret() throws Exception {
 
-        String token = "Bearer f09cd19a-26f5-3976-a7f0-7a26fa2b9711";
+        String siret = "97080195700014";
 
         CompanyOutput companyOutput =CompanyOutput.builder()
-                .id("")
+                .id("97080195700014")
                 .nic("00014")
+                .creationDate("1970-01-01")
                 .fullAddress("3 RUE ST FRANCOIS DE PAULE 06300 NICE")
                 .fullName("NAFRev2")
-                .tvaNumber(1).build();
+                .tvaNumber(null).build();
 
 
-        //when(movieService.getMovieByPreferences(preferences)).thenReturn(expected);
+        when(companyController.findCompanyBySiret(siret)).thenReturn(companyOutput);
 
-        //List<MovieDetails> result = movieService.getMovieByPreferences(preferences);
+        CompanyOutput result = companyService.findCompanyBySiret(siret);
 
         // assertion
-        //assertEquals(expected, result);
+        assertEquals(companyOutput, result);
     }
 }
