@@ -17,7 +17,7 @@ public interface CompanyMapper {
     CompanyOutput fromDbToOutput(Company result);
     List<CompanyOutput> fromDbToOutput(List<Company> result);
 
-    CompanyOutput fromApiResponseToCompanyOutput(ApiOutputResult apiOutputResult);
+    CompanyOutput  fromApiResponseToCompanyOutput(ApiOutputResult apiOutputResult);
 
     @AfterMapping
     default CompanyOutput fromApiResponseToCompanyOutput(ApiOutputResult source, @MappingTarget CompanyOutput target){
