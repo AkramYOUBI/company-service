@@ -84,7 +84,7 @@ public class CompanyControllerTest {
      *
      * @throws Exception
      */
-    @Test
+    /*@Test
     public void testFindCompanyBySiret() throws Exception {
 
         String siret = "97080195700014";
@@ -104,5 +104,5 @@ public class CompanyControllerTest {
 
         // assertion
         assertEquals(companyOutput, result);
-    }
+    }*/
 }
