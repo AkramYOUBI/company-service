@@ -94,6 +94,12 @@
 			<artifactId>logging-interceptor</artifactId>
 			<version>4.9.3</version>
 		</dependency>
+		<!--CSV Export-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.8</version>
+		</dependency>
 
 	</dependencies>
 

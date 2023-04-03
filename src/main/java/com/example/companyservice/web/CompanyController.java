@@ -6,6 +6,7 @@ import com.example.companyservice.service.CompanyService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -32,7 +33,7 @@ public class CompanyController {
 
     @GetMapping("/findBySiret/{siret}")
     @ResponseStatus(HttpStatus.OK)
-    public CompanyOutput findCompanyBySiret(@PathVariable String siret){
-        return companyService.findCompanyBySiret(siret);
+    public CompanyOutput findCompanyBySiret(@PathVariable String siret, HttpServletResponse servletResponse){
+        return companyService.findCompanyBySiret(siret, servletResponse);
     }
 }
