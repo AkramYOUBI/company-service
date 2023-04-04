@@ -37,25 +37,45 @@ public class CompanyService {
     }
 
     public CompanyOutput saveCompany(CompanyInput companyInput) {
-        Company companydb = companyMapper.fromInputToDb(companyInput);
-        Company result = companyRepository.save(companydb);
-        CompanyOutput companyOutput = companyMapper.fromDbToOutput(result);
-        return companyOutput;
+        try {
+            Company companydb = companyMapper.fromInputToDb(companyInput);
+            Company result = companyRepository.save(companydb);
+            CompanyOutput companyOutput = companyMapper.fromDbToOutput(result);
+            return companyOutput;
+        } catch (Exception e) {
+            System.err.println("An error occurred while saving the company: " + e.getMessage());
+            throw new RuntimeException("Failed to save company");
+        }
     }
+
 
     public List<CompanyOutput> getAllCompanies() {
-        List<Company> companiesList = companyRepository.findAll();
-        List<CompanyOutput> companiesOutput = companyMapper.fromDbToOutput(companiesList);
-        return companiesOutput;
+        try {
+            List<Company> companiesList = companyRepository.findAll();
+            List<CompanyOutput> companiesOutput = companyMapper.fromDbToOutput(companiesList);
+            return companiesOutput;
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to retrieve companies", e);
+        }
     }
 
+
     public CompanyOutput findCompanyBySiret(String siret, HttpServletResponse servletResponse) {
-        CompanyOutput target = new CompanyOutput();
-        String authorizationHeader = "Bearer " + token;
-        ApiOutputResult apiOutputResult = companyFeignClient.findBySiret(siret, authorizationHeader);
-        CompanyOutput companyOutput = companyMapper.fromApiResponseToCompanyOutput(apiOutputResult, target);
-        CSVExport.writeToCsv(servletResponse, companyOutput);
-        return companyOutput;
+        if (siret == null || siret.isEmpty()) {
+            throw new IllegalArgumentException("Siret argument cannot be null or empty");
+        }
+
+        try {
+            CompanyOutput target = new CompanyOutput();
+            String authorizationHeader = "Bearer " + token;
+            ApiOutputResult apiOutputResult = companyFeignClient.findBySiret(siret, authorizationHeader);
+            CompanyOutput companyOutput = companyMapper.fromApiResponseToCompanyOutput(apiOutputResult, target);
+            CSVExport.writeToCsv(servletResponse, companyOutput);
+            return companyOutput;
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to find company by siret", e);
+        }
     }
+
 
 }
