@@ -1,7 +1,7 @@
 # Company-Service Application
 
-is an application that retrieve the company information for all
-businesses defined by the above SIRET numbers
+Company Service is an application that retrieve the company information for all
+businesses defined by the SIRET number
 
 ## How to clone the project ?
 
