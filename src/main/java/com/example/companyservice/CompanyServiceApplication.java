@@ -20,8 +20,8 @@ TODO:
 			"Done" 1.2-Unit and integration Tests (3 APIs)
 	"DONE" 2- Update all information in the Swagger UI: http://localhost:8080/swagger-ui/index.html#/ && Docx: http://localhost:8080/v3/api-docs/
 	"Done" 3- Extract Data as a CSV File
-	4- Docker File / Docker Compose
-	5- Actuator
-	6- Jenkins File
+	"Done" 4- Docker File / Docker Compose
+	"Done" 5- Actuator
+	"Done" 6- Jenkins File
 	7- Read Me File
 */

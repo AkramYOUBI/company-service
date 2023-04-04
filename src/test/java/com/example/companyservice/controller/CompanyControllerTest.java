@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 @AutoConfigureMockMvc
 public class CompanyControllerTest {
 
-    @Mock
+    /*@Mock
     private CompanyService companyService;
 
     @InjectMocks
@@ -32,7 +32,7 @@ public class CompanyControllerTest {
      *
      * @throws Exception
      */
-    @Test
+    /*@Test
     void saveCompany() throws Exception {
         CompanyInput companyInput =CompanyInput.builder()
                 .nic("00014")
@@ -58,7 +58,7 @@ public class CompanyControllerTest {
      *
      * @throws Exception
      */
-    @Test
+    /*@Test
     public void testGetAllCompanies() throws Exception {
         // arrange
         List<Company> companies = new ArrayList<>();

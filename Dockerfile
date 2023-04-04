@@ -1,6 +1,5 @@
-# Set base image
-FROM adoptopenjdk:11-jre-hotspot
-# Copy the application JAR file and the configuration file to the container
-COPY target/*.jar app.jar
-# Set the entrypoint to run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+FROM adoptopenjdk:11
+LABEL mentainer="akramyoubi.gstr@gmail.com"
+WORKDIR /app
+COPY target/company-service-0.0.1-SNAPSHOT.jar /app/springboot-restful-webservices.jar
+ENTRYPOINT ["java", "-jar", "springboot-restful-webservices.jar"]
