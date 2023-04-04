@@ -9,11 +9,11 @@ import com.example.companyservice.domain.mapper.CompanyMapper;
 import com.example.companyservice.domain.repository.CompanyRepository;
 import com.example.companyservice.domain.response.Header;
 import com.example.companyservice.service.client.CompanyFeignClient;
+import com.example.companyservice.service.util.CSVExport;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.servlet.http.HttpServletResponse;
@@ -21,24 +21,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class CompanyServiceTest {
 
-    /*@Mock
+    @Mock
     private CompanyRepository companyRepository;
     @Mock
     private CompanyFeignClient companyFeignClient;
     @Mock
     private CompanyMapper companyMapper;
     @Mock
-    private ApiOutputResult apiOutputResult;
-    @Mock
     private HttpServletResponse servletResponse;
+    @Mock
+    private CSVExport csvExport;
     @InjectMocks
     private CompanyService companyService;
 
@@ -47,16 +47,16 @@ public class CompanyServiceTest {
      *
      * @throws Exception
      */
-    /*@Test
+    @Test
     void createCompanyTest() throws Exception {
-        CompanyOutput companyOutput =CompanyOutput.builder()
+        CompanyOutput companyOutput = CompanyOutput.builder()
                 .id("company_b665de1c-75ef-45b1-b7bf-db5e735b01e8")
                 .nic("00014")
                 .fullAddress("3 RUE ST FRANCOIS DE PAULE 06300 NICE")
                 .fullName("NAFRev2")
                 .tvaNumber(1).build();
 
-        CompanyInput companyInput =CompanyInput.builder()
+        CompanyInput companyInput = CompanyInput.builder()
                 .nic("00014")
                 .fullAddress("3 RUE ST FRANCOIS DE PAULE 06300 NICE")
                 .fullName("NAFRev2")
@@ -79,12 +79,13 @@ public class CompanyServiceTest {
         Assertions.assertEquals(result.getNic(), company.getNic());
         Assertions.assertEquals(result.getFullName(), company.getFullName());
     }
+
     /**
      * Get All Companies Unit Test
      *
      * @throws Exception
      */
-    /*@Test
+    @Test
     void getAllCompaniesTest() throws Exception {
 
         List<Company> companies = new ArrayList<>();
@@ -102,37 +103,4 @@ public class CompanyServiceTest {
 
         Assertions.assertEquals(companies.size(), result.size());
     }
-
-    /**
-     * Get Company by Siret Unit Test
-     *
-     * @throws Exception
-     */
-    /*@Test
-    public void testFindCompanyBySiret() throws IOException {
-        // Create a mock HttpServletResponse object
-        HttpServletResponse response = Mockito.mock(HttpServletResponse.class);
-
-        // Create a mock ApiOutputResult object
-        ApiOutputResult apiOutputResult = new ApiOutputResult();
-        // Set any required values in the ApiOutputResult object
-
-        // Mock the CompanyFeignClient
-        CompanyFeignClient companyFeignClient = Mockito.mock(CompanyFeignClient.class);
-        Mockito.when(companyFeignClient.findBySiret(Mockito.anyString(), Mockito.anyString())).thenReturn(apiOutputResult);
-
-        // Create the CompanyService object
-        CompanyService companyService = new CompanyService(companyRepository, companyMapper, companyFeignClient);
-
-        // Call the findCompanyBySiret() method
-        CompanyOutput result = companyService.findCompanyBySiret("97080195700014", response);
-
-        // Verify the response object is not null
-        Assertions.assertNotNull(response);
-
-        // Verify the output object is not null
-        Assertions.assertNotNull(result);
-    }*/
-
-
 }

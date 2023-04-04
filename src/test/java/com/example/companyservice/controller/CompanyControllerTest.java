@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 @AutoConfigureMockMvc
 public class CompanyControllerTest {
 
-    /*@Mock
+    @Mock
     private CompanyService companyService;
 
     @InjectMocks
@@ -32,7 +32,7 @@ public class CompanyControllerTest {
      *
      * @throws Exception
      */
-    /*@Test
+    @Test
     void saveCompany() throws Exception {
         CompanyInput companyInput =CompanyInput.builder()
                 .nic("00014")
@@ -58,7 +58,7 @@ public class CompanyControllerTest {
      *
      * @throws Exception
      */
-    /*@Test
+    @Test
     public void testGetAllCompanies() throws Exception {
         // arrange
         List<Company> companies = new ArrayList<>();
@@ -77,32 +77,4 @@ public class CompanyControllerTest {
         // assertion
         assertEquals(expected, result);
     }
-
-
-    /**
-     * Get Company By Siret Unit Test
-     *
-     * @throws Exception
-     */
-    /*@Test
-    public void testFindCompanyBySiret() throws Exception {
-
-        String siret = "97080195700014";
-
-        CompanyOutput companyOutput =CompanyOutput.builder()
-                .id("97080195700014")
-                .nic("00014")
-                .creationDate("1970-01-01")
-                .fullAddress("3 RUE ST FRANCOIS DE PAULE 06300 NICE")
-                .fullName("NAFRev2")
-                .tvaNumber(null).build();
-
-
-        when(companyController.findCompanyBySiret(siret)).thenReturn(companyOutput);
-
-        CompanyOutput result = companyService.findCompanyBySiret(siret);
-
-        // assertion
-        assertEquals(companyOutput, result);
-    }*/
 }
